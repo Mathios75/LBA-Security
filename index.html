@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBA Hospitality - Change Request Form</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a clean look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        /* Style for required fields */
+        .required-label::after {
+            content: '*';
+            color: #ef4444; /* Red color for asterisk */
+            margin-left: 0.25rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow-xl border border-gray-200">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">LBA HOSPITALITY – CHANGE REQUEST FORM</h1>
+
+        <form>
+            <!-- Section 1: General Information -->
+            <section class="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 1: General Information</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="changeRequestId" class="block text-sm font-medium text-gray-700 required-label mb-1">Change Request ID:</label>
+                        <input type="text" id="changeRequestId" name="changeRequestId"
+                               value="CR-YYYY-MM-DD-XXX" placeholder="CR-YYYY-MM-DD-XXX"
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="dateSubmitted" class="block text-sm font-medium text-gray-700 required-label mb-1">Date Submitted:</label>
+                        <input type="date" id="dateSubmitted" name="dateSubmitted"
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="requestedBy" class="block text-sm font-medium text-gray-700 required-label mb-1">Requested By:</label>
+                    <input type="text" id="requestedBy" name="requestedBy" placeholder="Your Name"
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 required-label mb-2">Department:</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-2 gap-x-4">
+                        <div class="flex items-center">
+                            <input id="dept-it" name="department" type="checkbox" value="IT"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            <label for="dept-it" class="ml-2 block text-sm text-gray-900">IT</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="dept-operations" name="department" type="checkbox" value="Operations"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            <label for="dept-operations" class="ml-2 block text-sm text-gray-900">Operations</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="dept-facilities" name="department" type="checkbox" value="Facilities"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            <label for="dept-facilities" class="ml-2 block text-sm text-gray-900">Facilities</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="dept-guest-services" name="department" type="checkbox" value="Guest Services"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            <label for="dept-guest-services" class="ml-2 block text-sm text-gray-900">Guest Services</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="dept-other" name="department" type="checkbox" value="Other"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            <label for="dept-other" class="ml-2 block text-sm text-gray-900">Other:</label>
+                            <input type="text" id="dept-other-text" name="departmentOther" placeholder="Specify"
+                                   class="ml-2 flex-grow px-2 py-1 border border-gray-300 rounded-md text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 required-label mb-2">Priority Level:</label>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <input id="priority-low" name="priorityLevel" type="radio" value="Low"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="priority-low" class="ml-2 block text-sm text-gray-900">Low</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="priority-medium" name="priorityLevel" type="radio" value="Medium"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="priority-medium" class="ml-2 block text-sm text-gray-900">Medium</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="priority-high" name="priorityLevel" type="radio" value="High"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="priority-high" class="ml-2 block text-sm text-gray-900">High</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="priority-emergency" name="priorityLevel" type="radio" value="Emergency"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="priority-emergency" class="ml-2 block text-sm text-gray-900">Emergency</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 required-label mb-2">Type of Change:</label>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <input id="change-standard" name="typeOfChange" type="radio" value="Standard"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="change-standard" class="ml-2 block text-sm text-gray-900">Standard</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="change-normal" name="typeOfChange" type="radio" value="Normal"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="change-normal" class="ml-2 block text-sm text-gray-900">Normal</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="change-emergency" name="typeOfChange" type="radio" value="Emergency"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="change-emergency" class="ml-2 block text-sm text-gray-900">Emergency</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="change-major" name="typeOfChange" type="radio" value="Major"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="change-major" class="ml-2 block text-sm text-gray-900">Major</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Change Description -->
+            <section class="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 2: Change Description</h2>
+
+                <div class="mb-6">
+                    <label for="titleOfChange" class="block text-sm font-medium text-gray-700 required-label mb-1">Title of Change:</label>
+                    <input type="text" id="titleOfChange" name="titleOfChange" placeholder="Brief title of the change"
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+
+                <div class="mb-6">
+                    <label for="descriptionOfChange" class="block text-sm font-medium text-gray-700 required-label mb-1">Description of Change:</label>
+                    <textarea id="descriptionOfChange" name="descriptionOfChange" rows="5"
+                              placeholder="Provide a clear summary of the change. Include purpose and background."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div class="mb-6">
+                    <label for="reasonForChange" class="block text-sm font-medium text-gray-700 required-label mb-1">Reason for Change:</label>
+                    <textarea id="reasonForChange" name="reasonForChange" rows="4"
+                              placeholder="What is the business, operational, or technical justification?"
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div>
+                    <label for="affectedSystemsLocations" class="block text-sm font-medium text-gray-700 required-label mb-1">Affected Systems/Locations:</label>
+                    <textarea id="affectedSystemsLocations" name="affectedSystemsLocations" rows="3"
+                              placeholder="List hotels, systems, or departments affected by this change."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+            </section>
+
+            <!-- Section 3: Impact Assessment -->
+            <section class="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 3: Impact Assessment</h2>
+
+                <div class="mb-6">
+                    <label for="businessImpact" class="block text-sm font-medium text-gray-700 required-label mb-1">Business Impact:</label>
+                    <textarea id="businessImpact" name="businessImpact" rows="4"
+                              placeholder="Explain how the change may affect hotel operations, guests, or staff."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div class="mb-6">
+                    <label for="riskAssessment" class="block text-sm font-medium text-gray-700 required-label mb-1">Risk Assessment:</label>
+                    <textarea id="riskAssessment" name="riskAssessment" rows="4"
+                              placeholder="List potential risks and mitigation steps."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 required-label mb-2">Downtime Required:</label>
+                        <div class="flex gap-4">
+                            <div class="flex items-center">
+                                <input id="downtime-yes" name="downtimeRequired" type="radio" value="Yes"
+                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="downtime-yes" class="ml-2 block text-sm text-gray-900">Yes</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="downtime-no" name="downtimeRequired" type="radio" value="No" checked
+                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="downtime-no" class="ml-2 block text-sm text-gray-900">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="estimatedDuration" class="block text-sm font-medium text-gray-700 mb-1">If Yes, Estimated Duration:</label>
+                        <input type="text" id="estimatedDuration" name="estimatedDuration" placeholder="e.g., 2 hours"
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 required-label mb-2">Guest-Facing Impact?</label>
+                    <div class="flex gap-4 mb-2">
+                        <div class="flex items-center">
+                            <input id="guest-impact-yes" name="guestFacingImpact" type="radio" value="Yes"
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="guest-impact-yes" class="ml-2 block text-sm text-gray-900">Yes</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="guest-impact-no" name="guestFacingImpact" type="radio" value="No" checked
+                                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                            <label for="guest-impact-no" class="ml-2 block text-sm text-gray-900">No</label>
+                        </div>
+                    </div>
+                    <textarea id="guestImpactExplanation" name="guestImpactExplanation" rows="3"
+                              placeholder="Explain how guest experience may be affected and planned communications."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+            </section>
+
+            <!-- Section 4: Implementation Plan -->
+            <section class="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 4: Implementation Plan</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="plannedStartTime" class="block text-sm font-medium text-gray-700 required-label mb-1">Planned Start Date/Time:</label>
+                        <input type="datetime-local" id="plannedStartTime" name="plannedStartTime"
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="plannedEndTime" class="block text-sm font-medium text-gray-700 required-label mb-1">Planned End Date/Time:</label>
+                        <input type="datetime-local" id="plannedEndTime" name="plannedEndTime"
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="implementationSteps" class="block text-sm font-medium text-gray-700 required-label mb-1">Implementation Steps:</label>
+                    <textarea id="implementationSteps" name="implementationSteps" rows="5"
+                              placeholder="Step-by-step breakdown of the deployment."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div>
+                    <label for="responsibleTeamPersonnel" class="block text-sm font-medium text-gray-700 required-label mb-1">Responsible Team/Personnel:</label>
+                    <textarea id="responsibleTeamPersonnel" name="responsibleTeamPersonnel" rows="3"
+                              placeholder="Names or teams accountable for execution."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+            </section>
+
+            <!-- Section 5: Rollback Plan -->
+            <section class="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 5: Rollback Plan</h2>
+
+                <div class="mb-6">
+                    <label for="rollbackStrategy" class="block text-sm font-medium text-gray-700 required-label mb-1">Rollback Strategy:</label>
+                    <textarea id="rollbackStrategy" name="rollbackStrategy" rows="4"
+                              placeholder="What steps will be taken if the change fails?"
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div>
+                    <label for="estimatedRollbackTime" class="block text-sm font-medium text-gray-700 required-label mb-1">Estimated Rollback Time:</label>
+                    <input type="text" id="estimatedRollbackTime" name="estimatedRollbackTime" placeholder="e.g., 30 minutes"
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </section>
+
+            <!-- Section 6: Testing & Validation -->
+            <section class="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 6: Testing & Validation</h2>
+
+                <div class="mb-6">
+                    <label for="testingPlan" class="block text-sm font-medium text-gray-700 required-label mb-1">Testing Plan:</label>
+                    <textarea id="testingPlan" name="testingPlan" rows="4"
+                              placeholder="Describe pre/post-change testing procedures."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <div>
+                    <label for="validationMethod" class="block text-sm font-medium text-gray-700 required-label mb-1">Validation Method:</label>
+                    <textarea id="validationMethod" name="validationMethod" rows="3"
+                              placeholder="How will success be measured?"
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+            </section>
+
+            <!-- Section 7: Approvals -->
+            <section class="p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b pb-3">Section 7: Approvals</h2>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider rounded-tl-md">
+                                    Role/Function
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Signature
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider rounded-tr-md">
+                                    Date
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- Change Owner -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Change Owner</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-changeOwner-name"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-changeOwner-signature" placeholder="Sign here"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="date" name="approver-changeOwner-date"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                            </tr>
+                            <!-- IT Manager -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">IT Manager</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-itManager-name"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-itManager-signature" placeholder="Sign here"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="date" name="approver-itManager-date"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                            </tr>
+                            <!-- Department Head -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Department Head</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-deptHead-name"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-deptHead-signature" placeholder="Sign here"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="date" name="approver-deptHead-date"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                            </tr>
+                            <!-- Compliance (if needed) -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Compliance (if needed)</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-compliance-name"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-compliance-signature" placeholder="Sign here"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="date" name="approver-compliance-date"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                            </tr>
+                            <!-- Change Advisory Board -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 rounded-bl-md">Change Advisory Board</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-cab-name"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="text" name="approver-cab-signature" placeholder="Sign here"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap rounded-br-md">
+                                    <input type="date" name="approver-cab-date"
+                                           class="block w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="mt-8 text-center">
+                <button type="submit"
+                        class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                    Submit Change Request
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
